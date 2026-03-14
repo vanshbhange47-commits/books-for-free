@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Books</title>
+
+<style>
+
+body{
+background:black;
+font-family:Arial;
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:100vh;
+}
+
+/* Logo */
+
+.logo{
+font-size:40px;
+font-weight:bold;
+margin-bottom:30px;
+background:linear-gradient(90deg,#00f2ff,#8a2be2);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* Search Box */
+
+.search-box{
+width:60%;
+max-width:500px;
+position:relative;
+}
+
+.search-box input{
+width:100%;
+padding:15px;
+border-radius:30px;
+border:none;
+font-size:18px;
+outline:none;
+box-shadow:0 0 15px rgba(0,255,255,0.5);
+transition:0.3s;
+}
+
+.search-box input:focus{
+box-shadow:0 0 25px #00f2ff;
+transform:scale(1.05);
+}
+
+/* Results */
+
+.results{
+margin-top:30px;
+width:60%;
+max-width:600px;
+}
+
+.result-item{
+background:#111;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.result-item:hover{
+background:#1f1f1f;
+transform:scale(1.05);
+box-shadow:0 0 10px #00f2ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="logo">Study Books</div>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search books..." onkeyup="searchBooks()">
+</div>
+
+<div class="results" id="results"></div>
+
+<script>
+
+let books = [
+
+{title:"SBT volume (1)", link:"books/physics/something.pdf"},
+{title:"irodov volume (1)", link:"books/physics/irodov volume (1).pdf"},
+
+{title:"Chemistry Notes Class 11", link:"books/chemistry/chem1.pdf"},
+{title:"Chemistry Notes Class 12", link:"books/chemistry/chem2.pdf"},
+
+{title:"Maths Notes Class 11", link:"books/maths/maths1.pdf"},
+{title:"Maths Notes Class 12", link:"books/maths/maths2.pdf"},
+
+{title:"Motivational Novel", link:"books/novels/novel1.pdf"}
+
+];
+
+function searchBooks(){
+
+let input = document.getElementById("searchInput").value.toLowerCase();
+let results = document.getElementById("results");
+
+results.innerHTML="";
+
+if(input.length === 0){
+return;
+}
+
+books.forEach(book => {
+
+if(book.title.toLowerCase().includes(input)){
+
+let div = document.createElement("div");
+div.className="result-item";
+div.innerText=book.title;
+
+div.onclick=()=>{
+window.open(book.link,"_blank");
+};
+
+results.appendChild(div);
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

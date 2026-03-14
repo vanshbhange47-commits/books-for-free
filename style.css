@@ -1,0 +1,432 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* BODY */
+
+body{
+background:linear-gradient(-45deg,#000000,#32393b,#354044,#1e3c72);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+color:white;
+min-height:100vh;
+}
+
+/* BACKGROUND ANIMATION */
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* PARTICLES */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+opacity:0.12;
+animation:particles 25s linear infinite;
+z-index:-1;
+}
+
+@keyframes particles{
+from{transform:translateY(0);}
+to{transform:translateY(-200px);}
+}
+
+/* HEADER */
+
+header{
+padding:25px;
+text-align:center;
+}
+
+/* LOGO */
+
+.logo{
+font-size:30px;
+font-weight:bold;
+letter-spacing:3px;
+text-shadow:0 0 10px #fff,0 0 20px #00eaff;
+}
+
+/* TITLE */
+
+.title{
+text-align:center;
+margin-top:80px;
+margin-bottom:10px;
+font-size:30px;
+text-shadow:0 0 10px #00eaff;
+}
+
+/* SUBJECT ROW */
+
+.subjects-row{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+p{
+  margin:5px 0;
+}
+
+/* CARD */
+
+.card{
+width:180px;
+height:200px;
+text-align:center;
+border-radius:15px;
+cursor:pointer;
+transition:0.4s;
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.2);
+
+box-shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* CARD IMAGE */
+
+.card img{
+width:70px;
+margin-top:25px;
+transition:0.4s;
+}
+
+/* CARD TEXT */
+
+.card h3{
+margin-top:15px;
+color:white;
+}
+
+/* CARD HOVER */
+
+.card:hover{
+transform:translateY(-12px) scale(1.05) rotateX(5deg) rotateY(-5deg);
+box-shadow:0 0 30px rgba(0,255,255,0.8);
+}
+
+/* IMAGE HOVER */
+
+.card:hover img{
+transform:scale(1.1);
+}
+
+/* NOVEL ROW */
+
+.books-row{
+display:flex;
+justify-content:center;
+}
+
+/* PAGE FADE */
+
+main{
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* BOOK LIST */
+
+.book-list{
+max-width:700px;
+margin:auto;
+}
+
+/* BOOK ITEM */
+
+.book{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.08);
+padding:15px;
+border-radius:10px;
+margin-bottom:10px;
+backdrop-filter:blur(10px);
+}
+
+/* DOWNLOAD BUTTON */
+
+.book a{
+text-decoration:none;
+color:white;
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+padding:8px 16px;
+border-radius:6px;
+transition:0.3s;
+}
+
+/* BUTTON HOVER */
+
+.book a:hover{
+box-shadow:0 0 15px #00eaff;
+transform:scale(1.05);
+}
+
+/* DARK LIGHT BUTTON */
+
+#modeToggle{
+position:absolute;
+top:20px;
+right:20px;
+padding:8px 12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:18px;
+background:rgba(255,255,255,0.2);
+color:white;
+}
+
+/* LIGHT MODE */
+
+.light-mode{
+background:white;
+color:black;
+}
+
+.light-mode .card{
+background:#f2f2f2;
+color:black;
+}
+
+.light-mode .book{
+background:#f2f2f2;
+color:black;
+}
+
+.light-mode .book a{
+background:#0072ff;
+}
+
+.credit{
+  text-align:center;
+  margin-top:60px;
+  padding:15px;
+  font-size:14px;
+  opacity:0.7;
+}
+
+.credit p{
+  text-shadow:0 0 8px #fff
+}
+
+.search-btn{
+position:fixed;
+top:20px;
+right:20px;
+padding:10px 18px;
+border:none;
+border-radius:20px;
+background:#00e5ff;
+color:black;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 10px #00e5ff;
+transition:0.3s;
+}
+
+.search-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00e5ff;
+}
+
+.request-btn{
+position:fixed;
+top:20px;
+left:20px;
+padding:10px 18px;
+border:none;
+border-radius:20px;
+background:#00e5ff;
+color:black;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 10px #00e5ff;
+transition:0.3s;
+}
+
+.request-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00e5ff;
+}
+
+/* Title */
+
+.title{
+font-size:40px;
+text-shadow:0 0 15px #00eaff;
+margin-bottom:40px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #00eaff;
+}
+to{
+text-shadow:0 0 30px #00eaff;
+}
+}
+
+/* Timer box */
+
+.timer-box{
+padding:40px;
+border-radius:20px;
+background:rgba(255,255,255,0.05);
+box-shadow:0 0 30px #00eaff;
+}
+
+/* BIG Timer */
+
+#time{
+font-size:15vw;
+text-shadow:0 0 40px #00eaff;
+margin-bottom:40px;
+animation:flipIn 0.6s;
+}
+
+/* Flip animation */
+
+@keyframes flipIn{
+
+0%{
+transform:rotateX(90deg);
+opacity:0;
+}
+
+50%{
+transform:rotateX(-20deg);
+}
+
+100%{
+transform:rotateX(0deg);
+opacity:1;
+}
+
+}
+
+/* Buttons */
+
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:25px;
+background:#00e5ff;
+color:black;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+/* Button hover */
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00e5ff;
+}
+
+/* Button click */
+
+button:active{
+transform:scale(0.95);
+}
+
+/* Stopwatch button */
+
+.stopwatch-btn{
+position:fixed;
+top:80px;
+left:20px;
+padding:10px 18px;
+border:none;
+border-radius:20px;
+background:#00e5ff;
+color:black;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 10px #00e5ff;
+transition:0.3s;
+z-index:1000;
+}
+
+.stopwatch-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00e5ff;
+}
+
+/* Mobile Responsive */
+
+@media (max-width:768px){
+
+.title{
+font-size:22px;
+margin-top:60px;
+}
+
+.container{
+flex-direction:column;
+align-items:center;
+}
+
+.card{
+width:90%;
+margin:10px 0;
+}
+
+.search-btn{
+top:15px;
+right:15px;
+padding:8px 14px;
+font-size:14px;
+}
+
+.stopwatch-btn{
+top:70px;
+left:15px;
+padding:8px 14px;
+font-size:14px;
+}
+
+button{
+padding:8px 12px;
+font-size:14px;
+}
+
+img{
+width:100%;
+height:auto;
+}
+
+}
